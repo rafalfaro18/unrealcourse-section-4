@@ -42,4 +42,4 @@ Based on Section 4 of https://www.udemy.com/unrealcourse/
 
 ### Instructions:
 
-- ``git clone https://github.com/rafalfaro18/unrealcourse-section-3.git 04_BattleTank``
+- ``git clone https://github.com/rafalfaro18/unrealcourse-section-4.git 04_BattleTank``
