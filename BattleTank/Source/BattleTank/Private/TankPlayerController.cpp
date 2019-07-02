@@ -36,3 +36,9 @@ void ATankPlayerController::AimTowardsCrosshair() {
 	// If it hits the landscape
 		// Tell controlled tank to aim at this point
 }
+
+//bool GetSightRayHitLocation()
+	// OutHitLocation as out parameter
+	// hint: use & somewehre
+	//bonus: presudocode
+	// super bonus: working method
