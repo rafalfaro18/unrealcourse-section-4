@@ -55,10 +55,10 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 			false,
 			0,
 			0,
-			ESuggestProjVelocityTraceOption::DoNotTrace,
-			FCollisionResponseParams::DefaultResponseParam,
-			TArray<AActor*>(),
-			true
+			ESuggestProjVelocityTraceOption::DoNotTrace
+			//FCollisionResponseParams::DefaultResponseParam,
+			//TArray<AActor*>(),
+			//true
 		)
 	) {
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
