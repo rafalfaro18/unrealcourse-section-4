@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Classes/Components/StaticMeshComponent.h"
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
 
@@ -16,13 +17,17 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-protected:
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	void AimAt(FVector HitLocation); // not override because UTankAimingComponent does't inherith Tank's AimAt
+
+private:
+
+	UStaticMeshComponent* Barrel = nullptr;
 };
