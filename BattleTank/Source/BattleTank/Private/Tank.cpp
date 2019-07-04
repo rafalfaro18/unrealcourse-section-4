@@ -3,6 +3,7 @@
 
 #include "Tank.h"
 
+
 // Sets default values
 ATank::ATank()
 {
@@ -25,6 +26,11 @@ void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ATank::SetBarrelReference(UStaticMeshComponent * BarrelToSet)
+{
+	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
 
 // Called to bind functionality to input
