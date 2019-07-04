@@ -25,7 +25,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	void AimAt(FVector HitLocation); // not override because UTankAimingComponent does't inherith Tank's AimAt
+	void AimAt(FVector HitLocation, float LaunchSpeed); // not override because UTankAimingComponent does't inherith Tank's AimAt
 
 private:
 
