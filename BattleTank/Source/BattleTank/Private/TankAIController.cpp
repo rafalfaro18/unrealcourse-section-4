@@ -3,6 +3,7 @@
 
 #include "Classes/Engine/World.h"
 #include "Classes/GameFramework/PlayerController.h"
+#include "Tank.h"
 #include "TankAIController.h"
 
 ATank* ATankAIController::GetControlledTank() const {
