@@ -1,10 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Tank.h"
 #include "TankAimingComponent.h"
 #include "Classes/GameFramework/Actor.h"
-#include "Tank.h"
-
+#include "TankBarrel.h"
+#include "Classes/Engine/StaticMeshSocket.h"
+#include "Projectile.h"
 
 // Sets default values
 ATank::ATank()
@@ -42,6 +44,11 @@ void ATank::Fire()
 	if (!Barrel) { return; }
 
 	// Spawn a projectile at the socket location on the barrel.
+	GetWorld()->SpawnActor<AProjectile>(
+		ProjectileBlueprint, 
+		Barrel->GetSocketLocation(FName("Projectile")),
+		Barrel->GetSocketRotation(FName("Projectile"))
+	);
 }
 
 // Called to bind functionality to input
