@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Public/Math/UnrealMathUtility.h"
 #include "TankBarrel.h"
+#include "Public/Math/UnrealMathUtility.h"
 
 void UTankBarrel::Elevate(float RelativeSpeed) {
 	
