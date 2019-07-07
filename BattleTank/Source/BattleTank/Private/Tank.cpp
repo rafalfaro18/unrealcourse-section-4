@@ -2,6 +2,7 @@
 
 
 #include "TankAimingComponent.h"
+#include "Classes/GameFramework/Actor.h"
 #include "Tank.h"
 
 
@@ -34,7 +35,8 @@ void ATank::SetTurretReference(UTankTurret * TurretToSet)
 
 void ATank::Fire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Fire"));
+	auto Time = GetWorld()->GetTimeSeconds();
+	UE_LOG(LogTemp, Warning, TEXT("%f: Tank fire"), Time);
 }
 
 // Called to bind functionality to input
