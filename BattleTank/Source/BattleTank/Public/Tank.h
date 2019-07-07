@@ -10,6 +10,7 @@
 class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
+class AProjectile;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -47,6 +48,6 @@ private:
 	float LaunchSpeed = 4000;
 
 	UPROPERTY(EditAnywhere, Category = Setup)
-	UClass* ProjectileBlueprint; // Alternative: TSubclassOf to enforce class derived from specific class
+	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 };
