@@ -3,6 +3,7 @@
 #include "Classes/GameFramework/Actor.h"
 #include "Classes/Kismet/GameplayStatics.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 #include "TankAimingComponent.h"
 
 // Sets default values for this component's properties
