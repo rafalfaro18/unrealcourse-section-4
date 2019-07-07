@@ -6,6 +6,7 @@
 #include "Classes/GameFramework/Actor.h"
 #include "TankBarrel.h"
 #include "Classes/Engine/StaticMeshSocket.h"
+#include "Classes/GameFramework/ProjectileMovementComponent.h"
 #include "Projectile.h"
 
 // Sets default values
@@ -16,6 +17,7 @@ ATank::ATank()
 
 	// No need to protect pointers as added as construction
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+	TankProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(FName("Projectile Movement Component"));
 }
 
 // Called when the game starts or when spawned

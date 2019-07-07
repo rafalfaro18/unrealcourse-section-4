@@ -10,6 +10,7 @@
 class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
+class UProjectileMovementComponent;
 class AProjectile;
 
 UCLASS()
@@ -32,6 +33,7 @@ public:
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
+	UProjectileMovementComponent* TankProjectileMovementComponent = nullptr;
 
 
 private:
