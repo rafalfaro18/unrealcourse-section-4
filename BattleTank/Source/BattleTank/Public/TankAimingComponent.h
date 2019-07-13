@@ -35,12 +35,15 @@ public:
 
 	void AimAt(FVector HitLocation, float LaunchSpeed); // not override because UTankAimingComponent does't inherith Tank's AimAt
 
+protected:
+
+	UPROPERTY(BlueprintReadOnly, Category = "State")
+	EFiringState FiringState = EFiringState::Reloading;
+
 private:
 
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
-
-	EFiringState FiringState = EFiringState::Reloading;
 
 	void MoveBarrelTowards(FVector AimDirection);
 
