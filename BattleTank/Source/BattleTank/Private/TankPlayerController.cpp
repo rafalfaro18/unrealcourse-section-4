@@ -4,7 +4,6 @@
 #include "TankAimingComponent.h"
 #include "Classes/Engine/World.h"
 #include "Classes/Camera/PlayerCameraManager.h"
-#include "Tank.h"
 
 void ATankPlayerController::BeginPlay(){
 	Super::BeginPlay();
@@ -22,7 +21,7 @@ void ATankPlayerController::Tick(float DeltaTime)
 
 
 ATank* ATankPlayerController::GetControlledTank() const {
-	return Cast<ATank>(GetPawn());
+	return GetPawn();
 }
 
 void ATankPlayerController::AimTowardsCrosshair() {
