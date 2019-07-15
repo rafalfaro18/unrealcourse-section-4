@@ -17,6 +17,11 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
+void UTankAimingComponent::BeginPlay() {
+	// So that first fire is after initial reload
+	LastFireTime = FPlatformTime::Seconds();
+}
+
 void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) {
 	UE_LOG(LogTemp, Warning, TEXT("Aiming Comp. ticking"));
 }
@@ -67,10 +72,11 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection) {
 
 void UTankAimingComponent::Fire()
 {
-	if (!ensure(Barrel && ProjectileBlueprint)) { return; }
 	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
 	if (isReloaded) {
 		// Spawn a projectile at the socket location on the barrel.
+		if (!ensure(Barrel)) { return; }
+		if (!ensure(ProjectileBlueprint)) { return; }
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 			ProjectileBlueprint,
 			Barrel->GetSocketLocation(FName("Projectile")),
