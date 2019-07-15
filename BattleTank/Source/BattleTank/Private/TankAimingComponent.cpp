@@ -23,7 +23,10 @@ void UTankAimingComponent::BeginPlay() {
 }
 
 void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) {
-	UE_LOG(LogTemp, Warning, TEXT("Aiming Comp. ticking"));
+	if ((FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds) {
+		FiringState = EFiringState::Reloading;
+	}
+	// Todo: Handle aiming and locked states.
 }
 
 
@@ -72,8 +75,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection) {
 
 void UTankAimingComponent::Fire()
 {
-	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-	if (isReloaded) {
+	if (FiringState != EFiringState::Reloading) {
 		// Spawn a projectile at the socket location on the barrel.
 		if (!ensure(Barrel)) { return; }
 		if (!ensure(ProjectileBlueprint)) { return; }
