@@ -40,6 +40,11 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickTy
 	}
 }
 
+int UTankAimingComponent::GetRoundsLeft() const
+{
+	return RoundsLeft;
+}
+
 EFiringState UTankAimingComponent::GetFiringState() const
 {
 	return FiringState;
