@@ -5,10 +5,22 @@
 #include "TankAimingComponent.h"
 #include "Classes/Engine/World.h"
 #include "Classes/GameFramework/PlayerController.h"
+#include "Tank.h" // So we can implement OnDeath
+
 // Depends on movement component via pathfinding system
 
 void ATankAIController::BeginPlay() {
 	Super::BeginPlay();
+}
+
+void ATankAIController::SetPawn(APawn* InPawn) {
+	Super::SetPawn(InPawn);
+	if (InPawn) {
+		auto PossessedTank = Cast<ATank>(InPawn);
+		if (! ensure(PossessedTank)) { return; }
+
+		// TODO: Subscribe our local method to the tank's death event broadcast.
+	}
 }
 
 void ATankAIController::Tick(float DeltaSeconds)
@@ -31,3 +43,5 @@ void ATankAIController::Tick(float DeltaSeconds)
 		AimingComponent->Fire();
 	}
 }
+
+
