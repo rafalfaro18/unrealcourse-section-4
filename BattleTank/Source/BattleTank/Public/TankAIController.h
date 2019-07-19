@@ -27,5 +27,8 @@ private:
 	virtual void SetPawn(APawn* InPawn) override;
 
 	virtual void Tick(float DeltaSeconds) override;
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
 	
 };
