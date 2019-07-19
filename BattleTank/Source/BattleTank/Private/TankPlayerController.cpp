@@ -4,6 +4,22 @@
 #include "TankAimingComponent.h"
 #include "Classes/Engine/World.h"
 #include "Classes/Camera/PlayerCameraManager.h"
+#include "Tank.h"
+
+void ATankPlayerController::SetPawn(APawn* InPawn) {
+	Super::SetPawn(InPawn);
+	if (InPawn) {
+		auto PossessedTank = Cast<ATank>(InPawn);
+		if (!ensure(PossessedTank)) { return; }
+
+		// Subscribe our local method to the tank's death event broadcast.
+		PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerController::OnPossessedTankDeath);
+	}
+}
+
+void ATankPlayerController::OnPossessedTankDeath() {
+	StartSpectatingOnly();
+}
 
 void ATankPlayerController::BeginPlay(){
 	Super::BeginPlay();
