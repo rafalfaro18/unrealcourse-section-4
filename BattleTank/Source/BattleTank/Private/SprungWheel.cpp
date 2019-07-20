@@ -51,6 +51,8 @@ void ASprungWheel::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UE_LOG(LogTemp, Warning, TEXT("Tick %f"), GetWorld()->GetTimeSeconds());
+
 }
 
 void ASprungWheel::AddDrivingForce(float ForceMagnitude) {
