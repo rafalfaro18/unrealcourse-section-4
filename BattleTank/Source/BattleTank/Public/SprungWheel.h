@@ -18,11 +18,6 @@ public:
 	// Sets default values for this actor's properties
 	ASprungWheel();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -33,6 +28,12 @@ public:
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USphereComponent* Axle = nullptr;
+
+	void AddDrivingForce(float ForceMagnitude);
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 private:
 
