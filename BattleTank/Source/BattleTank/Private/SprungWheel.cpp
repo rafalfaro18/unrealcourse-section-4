@@ -30,6 +30,9 @@ void ASprungWheel::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	Wheel->SetNotifyRigidBodyCollision(true);
+	Wheel->OnComponentHit.AddDynamic(this, &ASprungWheel::OnHit);
+
 	SetupConstraint();
 }
 
@@ -52,4 +55,9 @@ void ASprungWheel::Tick(float DeltaTime)
 
 void ASprungWheel::AddDrivingForce(float ForceMagnitude) {
 	Wheel->AddForce(Axle->GetForwardVector() * ForceMagnitude);
+}
+
+void ASprungWheel::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, FVector NormalImpulse, const FHitResult & Hit)
+{
+	UE_LOG(LogTemp, Warning, TEXT("OnHit %f"), GetWorld()->GetTimeSeconds());
 }
