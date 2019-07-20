@@ -24,9 +24,16 @@ void ASprungWheel::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	if (GetAttachParentActor()) {
-		UE_LOG(LogTemp, Warning, TEXT("Not null: %s"), *GetAttachParentActor()->GetName());
-	}
+	SetupConstraint();
+}
+
+void ASprungWheel::SetupConstraint()
+{
+	if (!GetAttachParentActor()) { return; }
+	UPrimitiveComponent* BodyRoot = Cast<UPrimitiveComponent>(GetAttachParentActor()->GetRootComponent());
+
+	if (!BodyRoot) { return; }
+	MassWheelConstraint->SetConstrainedComponents(BodyRoot, NAME_None, Wheel, NAME_None);
 }
 
 // Called every frame
@@ -35,4 +42,5 @@ void ASprungWheel::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
 

@@ -32,6 +32,8 @@ public:
 
 private:
 
+	void SetupConstraint();
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UPhysicsConstraintComponent* MassWheelConstraint = nullptr;
 
