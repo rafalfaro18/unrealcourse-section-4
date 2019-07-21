@@ -43,3 +43,7 @@ Based on Section 4 of https://www.udemy.com/unrealcourse/
 ### Instructions:
 
 - ``git clone https://github.com/rafalfaro18/unrealcourse-section-4.git 04_BattleTank``
+
+### Download
+
+https://drive.google.com/file/d/1DgAXzlj4Te-YjgFDS8keV749bkkUXb9a/view?usp=sharing (Windows 64-bit)
